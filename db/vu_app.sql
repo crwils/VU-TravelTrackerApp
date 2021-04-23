@@ -1,5 +1,5 @@
-DROP TABLE countries;
 DROP TABLE vu_points;
+DROP TABLE countries;
 
 CREATE TABLE countries (
     id SERIAL PRIMARY KEY, 
