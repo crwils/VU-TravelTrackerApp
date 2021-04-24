@@ -10,3 +10,5 @@ country_repository.save(country_1)
 
 vu_point_1 = Vu_point("Es Vedra", country_1, 8, "Es Vedrà is a small rocky island off the south western seaboard of the Spanish island of Ibiza.", False)
 vu_point_repository.save(vu_point_1)
+
+pdb.set_trace()

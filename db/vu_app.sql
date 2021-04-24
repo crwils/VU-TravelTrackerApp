@@ -12,6 +12,7 @@ CREATE TABLE countries (
 CREATE TABLE vu_points (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
+    country VARCHAR(255),
     rating INT,
     description TEXT, 
     visited BOOLEAN,
