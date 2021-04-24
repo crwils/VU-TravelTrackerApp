@@ -42,4 +42,9 @@ def delete(id):
     sql = "DELETE FROM vu_points WHERE id = %s"
     values = [id]
     run_sql(sql, values)
-    
+
+
+def update(vu_point):
+    sql = "UPDATE vu_points SET (name, rating, description, visited, country_id) = (%s, %s, %s, %s, %s) WHERE id = %s"
+    values = [vu_point.name, vu_point.rating, vu_point.description, vu_point.visited, vu_point.country.id, vu_point.id]
+    results = run_sql(sql, values)
