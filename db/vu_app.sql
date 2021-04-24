@@ -17,3 +17,9 @@ CREATE TABLE vu_points (
     visited BOOLEAN,
     country_id INT REFERENCES countries(id) ON DELETE CASCADE
 );
+
+-- CREATE TABLE cities (
+--     id SERIAL PRIMARY KEY,
+--     name VARCHAR(255),
+--     country_id INT REFERENCES countries(id) ON DELETE CASCADE
+-- );
