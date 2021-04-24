@@ -23,7 +23,7 @@ def select_all():
 
 def select(id):
     country = None
-    sql = "SELECT * FROM countries WHERE id = (%s)"
+    sql = "SELECT * FROM countries WHERE id = %s"
     values = [id]
     result = run_sql(sql, values)[0]
     if result is not None:
@@ -40,3 +40,7 @@ def delete(id):
     values = [id]
     run_sql(sql, values)
 
+def update(country):
+    sql = "UPDATE countries SET (name, capital, continent, visited) = (%s, %s, %s, %s) WHERE id = %s"
+    values = [country.name, country.capital, country.continent, country.visited, country.id]
+    results = run_sql(sql, values)
