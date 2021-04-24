@@ -2,12 +2,14 @@ from db.run_sql import run_sql
 
 from models.country import Country
 from models.vu_point import Vu_point
+from models.location import Location
+
 import repositories.country_repository as country_repository
 
 
 def save(vu_point):
-    sql = "INSERT INTO vu_points (name, rating, description, visited, country_id) VALUES (%s, %s, %s, %s, %s) RETURNING *"
-    values = [vu_point.name, vu_point.rating, vu_point.description, vu_point.visited, vu_point.country.id]
+    sql = "INSERT INTO vu_points (name, rating, description, visited, country_id, location_id) VALUES (%s, %s, %s, %s, %s, %s) RETURNING *"
+    values = [vu_point.name, vu_point.rating, vu_point.description, vu_point.visited, vu_point.country.id, vu_point.location.id]
     results = run_sql(sql, values)
     vu_point.id = results[0]['id']
     return vu_point
@@ -50,16 +52,3 @@ def update(vu_point):
     sql = "UPDATE vu_points SET (name, rating, description, visited, country_id) = (%s, %s, %s, %s, %s) WHERE id = %s"
     values = [vu_point.name, vu_point.rating, vu_point.description, vu_point.visited, vu_point.country.id, vu_point.id]
     results = run_sql(sql, values)
-
-
-def vu_points(country):
-    vu_points = []
-
-    sql = "SELECT * FROM vu_points WHERE country_id = %s"
-    values = [country.id]
-    results = run_sql(sql, values)
-
-    for row in results:
-        vu_point = Vu_point(row['name'], country, row['rating'], row['description'], row['visited'], row['id'])
-        vu_points.append(country)
-    return vu_points

@@ -2,6 +2,7 @@ from db.run_sql import run_sql
 
 from models.country import Country
 from models.vu_point import Vu_point
+from models.location import Location
 
 
 def save(country):
