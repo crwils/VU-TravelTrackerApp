@@ -37,3 +37,9 @@ def select(id):
 def delete_all():
     sql = "DELETE FROM vu_points"
     run_sql(sql)
+
+def delete(id):
+    sql = "DELETE FROM vu_points WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
+    
