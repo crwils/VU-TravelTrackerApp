@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section>
+    <h2>{{ country.name }}</h2>
+    <p>Status: {% if country.visited == True %} ✅ {% else %} ❌ {% endif %} </p>
+</section>
+
+{% endblock %}
