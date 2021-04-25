@@ -3,8 +3,12 @@
 {% block content %}
 
 <section>
-    <h2>{{ country.name }}</h2>
-    <p>Status: {% if country.visited == True %} ✅ {% else %} ❌ {% endif %} </p>
+    <h2> {% if country.visited == True %} {{ country.name }} ✅ {% else %} {{ country.name }} ❌ {% endif %} </h2>
+</section>
+<section>
+    <button style="width:10%">
+        <a href="/countries/{{country.id}}/new">Add VU.</a>
+    </button>
 </section>
 
 {% endblock %}

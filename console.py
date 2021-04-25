@@ -12,13 +12,13 @@ vu_point_repository.delete_all()
 location_repository.delete_all()
 
 
-country_1 = Country("Spain", "Madrid", "Europe", False)
+country_1 = Country("Spain", False)
 country_repository.save(country_1)
 
-country_2 = Country("Fiji", "Suva", "South Pacific", True)
+country_2 = Country("Fiji", True)
 country_repository.save(country_2)
 
-country_3 = Country("Indonesia", "Jakarta", "Asia", True)
+country_3 = Country("Indonesia", True)
 country_repository.save(country_3)
 
 
