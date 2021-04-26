@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section>
+    <h2> {% if country.visited == True %} {{ country.name }} ✅ {% else %} {{ country.name }} ❌ {% endif %} </h2>
+</section>
+<section>
+    <button style="width:10%">
+        <a href="/country/{{country.id}}/new">Add VU.</a>
+    </button>
+</section>
+<hr>
+<section>
+    {% for vu_point in all_vu_points %}
+        Name:   {{ vu_point.name }} <br>
+        Location: {{ vu_point.location.name }} <br>
+        Rating: {{ vu_point.rating }} <br>
+        Description: {{ vu_point.description }} <br>
+        {% if vu_point.visited == True %} Status: ✅ {% else %} Status ❌ {% endif %}
+        <p><a href="/country/{{country.id}}/edit">Edit</a></p>
+        <hr>
+    {% endfor %}
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section>
+    <form action="/country/{{country.id}}" method="POST">
+        <label for="default_country">Country: </label>
+        <select style="width: 10%;" name="default_country" id="default_country">
+            <option value="default_country" selected disabled="true"> {{country.name}} </option>
+        </select><br><br>
+        <label for="vu_name">VU. Name: </label>
+        <input style="width: 15%;" type="text" name="vu_name"><br><br>
+        <label for="location_name">Location: </label>
+        <input style="width: 15%;" type="text" name="location_name"><br><br>
+        <label for="rating">Rating out of 10: </label>
+        <select style="width: 8%;" name="rating" id="rating">
+            <option value="please-select" selected disabled="true" required>--</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select><br><br>
+        <label for="visited">Visited?</label>
+        <select required style="width: 15%" name="visited" id="visited">
+            <option value="please-select" selected disabled="true">Please select</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select><br><br>
+        <label for="description">Description: </label>
+        <textarea style="width: 30%" name="description" id="description" cols="30" rows="2"></textarea>
+        <!-- <label for="image_url">Add image URL: </label>
+        <input style="width: 15%" type="url" name="image_url" id="image_url"> -->
+        <input style="width: 15%;" type="submit" value="Submit">
+    </form>
+</section>
+<hr>
+{% endblock %}

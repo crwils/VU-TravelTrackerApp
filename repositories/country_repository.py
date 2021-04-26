@@ -4,8 +4,11 @@ from models.country import Country
 from models.vu_point import Vu_point
 from models.location import Location
 
+import repositories.vu_point_repository as vu_point_repository
+import repositories.location_repository as location_repository
 
-def save(country):
+
+def save(country): # working
     sql = "INSERT INTO countries (name, visited) VALUES (%s, %s) RETURNING *"
     values = [country.name, country.visited]
     results = run_sql(sql, values)
@@ -13,17 +16,17 @@ def save(country):
     return country
 
 
-def select_all():
+def select_all(): # working
     countries = []
     sql = "SELECT * FROM countries"
     results = run_sql(sql)
     for row in results:
-        country = Country(row['name'], row['visited'], row['id']) 
+        country = Country(row['name'], row['visited'], row['id']) # taking entries from database and attaching to a new country instance (arguments based on class parameters)
         countries.append(country)
     return countries
 
 
-def select(id):
+def select(id): # working
     country = None
     sql = "SELECT * FROM countries WHERE id = %s"
     values = [id]
@@ -33,24 +36,24 @@ def select(id):
     return country
 
 
-def delete_all():
+def delete_all(): # working
     sql = "DELETE FROM countries"
     run_sql(sql)
 
 
-def delete(id):
+def delete(id): # working
     sql = "DELETE FROM countries WHERE id = %s"
     values = [id]
     run_sql(sql, values)
 
 
-def update(country):
+def update(country): # working
     sql = "UPDATE countries SET (name, visited) = (%s, %s) WHERE id = %s"
     values = [country.name, country.visited, country.id]
-    results = run_sql(sql, values)
+    run_sql(sql, values)
 
 
-def vu_points(country):
+def vu_points(country): # working but need to pass a country object in as an argument
     vu_points = []
 
     sql = "SELECT * FROM vu_points WHERE country_id = %s"
@@ -58,6 +61,7 @@ def vu_points(country):
     results = run_sql(sql, values)
 
     for row in results:
-        vu_point = Vu_point(row['name'], country, row['rating'], row['description'], row['visited'], row['id'])
-        vu_points.append(country)
+        location = location_repository.select(row['location_id']) # was passing row['location_id'] into the vu_point instance below but this meant when using this function, the location was an id rather than an object. By selecting the object using the location id like this, I could then pass in the variable 'location' to the object
+        vu_point = Vu_point(row['name'], location, country, row['rating'], row['description'], row['visited'], row['id'])
+        vu_points.append(vu_point)
     return vu_points

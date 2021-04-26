@@ -262,8 +262,8 @@
             <label for="visited">Visited?</label> <br>
             <select required style="width: 35%" name="visited" id="visited">
             <option value="please-select" selected disabled="true">Please select</option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
+            <option value="True">Yes</option>
+            <option value="False">No</option>
             </select><br>
             <input style="width: 15%;" type="submit" value="Add Country">
         </form>
@@ -275,7 +275,7 @@
         <h3>Visited:</h3>
         {% for country in all_countries %}
         {% if country.visited == True %}
-        <a href="/countries/{{ country.id }}">{{ country.name }}</a> <br>
+        <a href="/country/{{ country.id }}">{{ country.name }}</a> <br>
         {% endif %}
         {% endfor %}
     </section>
@@ -284,7 +284,7 @@
         <h3>Not Yet Visited:</h3>
         {% for country in all_countries %}
         {% if country.visited == False %}
-        <a href="/countries/{{ country.id }}">{{ country.name }}</a> <br>
+        <a href="/country/{{ country.id }}">{{ country.name }}</a> <br>
         {% endif %}
         {% endfor %}
 
