@@ -30,17 +30,27 @@
         <label for="visited">Visited?</label>
         <select required style="width: auto" name="visited" id="visited">
             {% if vu_point.visited == True %}
-            <option value="True">Yes</option>
-            {% endif %}
-            {% if vu_point.visited == False %}
+            <option value="{{vu_point.visited}}"
+            {% if vu_point.visited == True %} selected="selected" {% endif %} >Yes</option>
+            {% else %}
             <option value="False">No</option>
             {% endif %}
         </select><br><br>
         <label for="description">Description: </label>
-        <textarea style="width: auto; name="description" id="description" cols="30" rows="3">{{vu_point.description}}</textarea>
+        <textarea style="width: auto;" name="description" id="description" cols="30" rows="3">{{vu_point.description}}</textarea>
+        
+        <!-- <select name="location_id" id="location">
+            {% for location in all_locations %}
+            <option value="{{ vu_point.location_id }}"
+                {% if vu_point.location_id == location.id %} selected = "selected" {% endif %}>
+                {{ vu_point.location.name }}
+            </option>
+            {% endfor %}
+        </select> -->
+
         <!-- <label for="image_url">Add image URL: </label>
         <input style="width: 15%" type="url" name="image_url" id="image_url"> -->
-        <input style="width: 15%;" type="submit" value="Submit">
+        <input style="width: auto;" type="submit" value="Submit">
     </form>
 </section>
 
