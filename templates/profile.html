@@ -275,7 +275,7 @@
         <h3>Visited:</h3>
         {% for country in all_countries %}
         {% if country.visited == True %}
-        <a href="/country/{{ country.id }}">{{ country.name }}</a> <br>
+        <a href="/country-{{country.id}}">{{ country.name }}</a> <br>
         {% endif %}
         {% endfor %}
     </section>
@@ -284,7 +284,7 @@
         <h3>Not Yet Visited:</h3>
         {% for country in all_countries %}
         {% if country.visited == False %}
-        <a href="/country/{{ country.id }}">{{ country.name }}</a> <br>
+        <a href="/country-{{country.id}}">{{ country.name }}</a> <br>
         {% endif %}
         {% endfor %}
 
