@@ -3,7 +3,7 @@
 {% block content %}
 
 <section>
-    <form action="/country-{{country.id}}" method="POST">
+    <form action="/country-{{country.id}}/new_vu" method="POST">
         <label for="default_country">Country: </label>
         <select style="width: 10%;" name="default_country" id="default_country">
             <option value="default_country" selected disabled="true"> {{country.name}} </option>

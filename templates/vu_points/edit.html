@@ -5,7 +5,7 @@
 <section>
     <b>VU. EDIT:</b>
     <hr>
-    <form action="/country-{{country.id}}" method="POST">
+    <form action="/country-{{country.id}}/vu-point-{{vu_point.id}}/edit" method="POST">
         <label for="default_country">Country: </label>
         <select style="width: auto;" name="default_country" id="default_country">
             <option value="default_country" selected disabled="true"> {{country.name}} </option>

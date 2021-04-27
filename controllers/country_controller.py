@@ -34,13 +34,13 @@ def view_country(id):
     return render_template("country/view.html", country=country, all_vu_points=all_vu_points)
 
 
-@countries_blueprint.route("/country-<id>/new", methods=['GET'])
+@countries_blueprint.route("/country-<id>/new_vu", methods=['GET'])
 def new_vu(id):
     country = country_repository.select(id)
-    return render_template("country/new.html", country=country)
+    return render_template("country/new_vu.html", country=country)
 
 
-@countries_blueprint.route("/country-<id>", methods=['POST']) # the route here must match the route on the form
+@countries_blueprint.route("/country-<id>/new_vu", methods=['POST']) # the route here must match the route on the form
 def submit_new_vu(id):
     country = country_repository.select(id)
     location = Location(request.form['location_name'], country)
@@ -53,6 +53,7 @@ def submit_new_vu(id):
     
     vu_point = Vu_point(name, location, country, rating, description, visited)
     vu_point_repository.save(vu_point)
+
     return redirect("/country-" + id) # can't use angle brackets here, so must use string interpolation
 
 
@@ -78,23 +79,23 @@ def edit_vu(id, id2):
     return render_template("vu_points/edit.html", country=country, vu_point=vu_point)
 
 
-@countries_blueprint.route("/country-<id>/vu-point-<id2>/view", methods=['POST'])
+@countries_blueprint.route("/country-<id>/vu-point-<id2>/edit", methods=['POST'])
 def edit_vu_submit(id, id2):
     country = country_repository.select(id)
-    vu_point = vu_point_repository.select(id2)
-    location = location_repository.select(vu_point.location_id) 
+    update_vu_point = vu_point_repository.select(id2)
+    location = location_repository.select(update_vu_point.location.id) 
 
     name = request.form['vu_name']
     rating = request.form['rating']
     description = request.form['description']
     visited = request.form['visited']   
-    country = country
-    location.name = request.form['location_name']
+    location_name = request.form['location_name']
+    if location.name != location_name:
+        location.name = location_name
+        location_repository.update(location)
     
-    update_location = Location(location.name, country, location.id)
-    update_vu_point = Vu_point(name, update_location, country, rating, description, visited, id2)
+    update_vu_point = Vu_point(name, location, country, rating, description, visited, id2)
 
     vu_point_repository.update(update_vu_point)
-    location_repository.update(update_location)
 
     return redirect("/country-" + id)
