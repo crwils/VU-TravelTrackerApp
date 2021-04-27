@@ -3,7 +3,7 @@
 {% block content %}
 
 <section>
-    <form action="/country-{{country.id}}/new_vu" method="POST">
+    <form action="/countries-{{country.id}}/new_vu" method="POST">
         <label for="default_country">Country: </label>
         <select style="width: 10%;" name="default_country" id="default_country">
             <option value="default_country" selected disabled="true"> {{country.name}} </option>
@@ -14,7 +14,7 @@
         <input style="width: 15%;" type="text" name="location_name"><br><br>
         <label for="rating">Rating out of 10: </label>
         <select style="width: 8%;" name="rating" id="rating">
-            <option value="please-select" selected disabled="true" required>--</option>
+            <option value="0" selected></option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -28,7 +28,7 @@
         </select><br><br>
         <label for="visited">Visited?</label>
         <select required style="width: 15%" name="visited" id="visited">
-            <option value="please-select" selected disabled="true">Please select</option>
+            <option value="please-select" selected>Please select</option>
             <option value="yes">Yes</option>
             <option value="no">No</option>
         </select><br><br>

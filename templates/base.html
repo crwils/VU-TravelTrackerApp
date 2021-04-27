@@ -10,14 +10,20 @@
 </head>
 
 <body>
-    <header style="background-color: dodgerblue;">
-        <h1>VU. App</h1>
-        <nav>
-            <ul>
-                <li><a href="/profile">Home</a></li>
-            </ul>
-        </nav>
+    <!-- Navbar -->
+    <header>
+        <div class="navbar">
+            <div class="container flex">
+                <img class="logo" style="width: 100px" src="static/images/vu_logo_transparent.png" alt="vu logo">
+                <nav>
+                    <ul>
+                        <li><a class="navbar-link" href="/profile">My Profile</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
     </header>
+    <hr>
     <main>
         {% block content %}
         {% endblock %}
