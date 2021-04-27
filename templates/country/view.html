@@ -6,6 +6,9 @@
     <h2> {% if country.visited == True %} {{ country.name }} ✅ {% else %} {{ country.name }} ❌ {% endif %} </h2>
 </section>
 <section>
+    <button>
+        <a href="/country-{{country.id}}/edit">Edit</a>
+    </button>
     <form action="/country-{{country.id}}/delete" method="POST">
         <button style="width: auto;">Delete Country</button>
     </form>

@@ -128,3 +128,15 @@ def delete_vu(id, id2):
 def delete_country(id):
     country_repository.delete(id)
     return redirect("/profile")
+
+@countries_blueprint.route("/country-<id>/edit", methods=['GET'])
+def edit_country(id):
+
+    country = country_repository.select(id)
+    return render_template("country/edit.html", country=country)
+
+@countries_blueprint.route("/country-<id>/edit", methods=['POST'])
+def submit_country_edit(id):
+
+    country = country_repository.select(id)
+    return render_template("country/edit.html", country=country)
