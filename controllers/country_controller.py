@@ -123,3 +123,8 @@ def delete_vu(id, id2):
     # get vu_point_object
     vu_point_repository.delete(id2)
     return redirect("/country-" + id)
+
+@countries_blueprint.route("/country-<id>/delete", methods=['POST'])
+def delete_country(id):
+    country_repository.delete(id)
+    return redirect("/profile")
