@@ -31,16 +31,14 @@ def view_country(id):
     country = country_repository.select(id)
     all_vu_points = country_repository.vu_points(country)
 
+
     if len(all_vu_points) > 0: # stops the country visited changing to true when last vu is deleted
         true_counter = 0
-        for vu_point in all_vu_points:
+        for vu_point in all_vu_points: # by doing on this route, it takes account of edits and new vu's
             if vu_point.visited == True:
                 true_counter +=1
-        if true_counter > 0:        # every time it iterates over all vu points before displaying, and if any vu_point.visited values are true, 1 is added to true_counter, and if true counter is not 0, it will always assign true to the country visited value
+        if true_counter > 0:        # every time it iterates over all vu points before displaying, and if any vu_point.visited values are true, 1 is added to true_counter, and if true counter is not 0, it will always assign true to the country visited value. This was to stop the country changing to not visited if one vu_point changed to not visited
             country = Country(country.name, True, id)
-            country_repository.update(country)
-        else:
-            country = Country(country.name, False, id)
             country_repository.update(country)
 
     return render_template("country/view.html", country=country, all_vu_points=all_vu_points)
@@ -106,15 +104,12 @@ def edit_vu_submit(id, id2):
         location.name = location_name
         location_repository.update(location)
     
-    # if visited == True:
-        # print("hello")
-
     update_vu_point = Vu_point(name, location, country, rating, description, visited, id2)
     vu_point_repository.update(update_vu_point)
 
-    if visited == "True":
-        updated_country = Country(country.name, True, id)
-        country_repository.update(updated_country)
+    # if visited == "True":
+    #     updated_country = Country(country.name, True, id)
+    #     country_repository.update(updated_country)
 
     return redirect("/country-" + id)
 
@@ -137,6 +132,8 @@ def edit_country(id):
 
 @countries_blueprint.route("/country-<id>/edit", methods=['POST'])
 def submit_country_edit(id):
-
-    country = country_repository.select(id)
-    return render_template("country/edit.html", country=country)
+    country_name = request.form['country']
+    visited = request.form['visited']
+    country = Country(country_name, visited, id)
+    country_repository.update(country)
+    return redirect("/country-" + id)

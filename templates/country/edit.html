@@ -2,7 +2,7 @@
 
 {% block content %}
 Country Edit:
-<form action="/profile" method='POST'>
+<form action="/country-{{country.id}}/edit" method='POST'>
     <select required style="width: 35%;" id="country" name="country">
         <option value="{{country.name}}" selected>{{country.name}}</option>
         <option value="---" disabled="true">---</option>
@@ -254,11 +254,11 @@ Country Edit:
         <option value="Zimbabwe">Zimbabwe</option>
     </select> <br>
     <label for="visited">Visited?</label> <br>
-    <select required style="width: 35%" name="visited" id="visited">
+    <select required style="width:auto" name="visited" id="visited">
     <option value="True" {% if country.visited == True %} selected {% endif %}>Yes</option>
     <option value="False" {% if country.visited == False %} selected {% endif %}>No</option>
     </select><br>
-    <input style="width: 15%;" type="submit" value="Add Country">
+    <input style="width: auto;" type="submit" value="Confirm">
 </form>
 
 
