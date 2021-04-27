@@ -31,6 +31,18 @@ def view_country(id):
     country = country_repository.select(id)
     all_vu_points = country_repository.vu_points(country)
 
+    if len(all_vu_points) > 0: # stops the country visited changing to true when last vu is deleted
+        true_counter = 0
+        for vu_point in all_vu_points:
+            if vu_point.visited == True:
+                true_counter +=1
+        if true_counter > 0:        # every time it iterates over all vu points before displaying, and if any vu_point.visited values are true, 1 is added to true_counter, and if true counter is not 0, it will always assign true to the country visited value
+            country = Country(country.name, True, id)
+            country_repository.update(country)
+        else:
+            country = Country(country.name, False, id)
+            country_repository.update(country)
+
     return render_template("country/view.html", country=country, all_vu_points=all_vu_points)
 
 
@@ -90,13 +102,19 @@ def edit_vu_submit(id, id2):
     description = request.form['description']
     visited = request.form['visited']   
     location_name = request.form['location_name']
-    if location.name != location_name:
+    if location.name != location_name: # if the location name is not equal to the location already attached, udpate it with the new location from the form
         location.name = location_name
         location_repository.update(location)
     
-    update_vu_point = Vu_point(name, location, country, rating, description, visited, id2)
+    # if visited == True:
+        # print("hello")
 
+    update_vu_point = Vu_point(name, location, country, rating, description, visited, id2)
     vu_point_repository.update(update_vu_point)
+
+    if visited == "True":
+        updated_country = Country(country.name, True, id)
+        country_repository.update(updated_country)
 
     return redirect("/country-" + id)
 
