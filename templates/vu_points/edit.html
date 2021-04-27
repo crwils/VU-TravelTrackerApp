@@ -29,12 +29,8 @@
         </select><br><br>
         <label for="visited">Visited?</label>
         <select required style="width: auto" name="visited" id="visited">
-            {% if vu_point.visited == True %}
-            <option value="{{vu_point.visited}}"
-            {% if vu_point.visited == True %} selected="selected" {% endif %} >Yes</option>
-            {% else %}
-            <option value="False">No</option>
-            {% endif %}
+            <option value="True" {% if vu_point.visited == True %} selected {% endif %}>Yes</option>
+            <option value="False" {% if vu_point.visited == False %} selected {% endif %}>No</option>
         </select><br><br>
         <label for="description">Description: </label>
         <textarea style="width: auto;" name="description" id="description" cols="30" rows="3">{{vu_point.description}}</textarea>
