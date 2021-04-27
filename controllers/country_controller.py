@@ -13,7 +13,8 @@ countries_blueprint = Blueprint("countries", __name__)
 @countries_blueprint.route("/profile") # working
 def profile():
     countries = country_repository.select_all()
-    return render_template("profile.html", all_countries = countries)
+    country_percentage = country_repository.country_percentage()
+    return render_template("profile.html", all_countries = countries, country_percentage=country_percentage)
 
 
 @countries_blueprint.route("/profile", methods=["POST"]) # working
@@ -27,10 +28,8 @@ def save_country():
 
 @countries_blueprint.route("/country-<id>", methods=['GET'])
 def view_country(id):
-
     country = country_repository.select(id)
     all_vu_points = country_repository.vu_points(country)
-
 
     if len(all_vu_points) > 0: # stops the country visited changing to true when last vu is deleted
         true_counter = 0

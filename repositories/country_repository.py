@@ -65,3 +65,12 @@ def vu_points(country): # working but need to pass a country object in as an arg
         vu_point = Vu_point(row['name'], location, country, row['rating'], row['description'], row['visited'], row['id'])
         vu_points.append(vu_point)
     return vu_points
+
+def country_percentage():
+    countries = select_all()
+    visited = []
+    for country in countries:
+        if country.visited == True:
+            visited.append(country)
+    return round(100*(len(visited) / 195),2)
+        
