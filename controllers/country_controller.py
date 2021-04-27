@@ -14,7 +14,8 @@ countries_blueprint = Blueprint("countries", __name__)
 def profile():
     countries = country_repository.select_all()
     country_percentage = country_repository.country_percentage()
-    return render_template("profile.html", all_countries = countries, country_percentage=country_percentage)
+    countries_visited = country_repository.countries_visited()
+    return render_template("profile.html", all_countries = countries, country_percentage=country_percentage, countries_visited=countries_visited)
 
 
 @countries_blueprint.route("/profile", methods=["POST"]) # working

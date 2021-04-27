@@ -73,4 +73,13 @@ def country_percentage():
         if country.visited == True:
             visited.append(country)
     return round(100*(len(visited) / 195),2)
+
+def countries_visited():
+    countries = select_all()
+    visited = []
+    for country in countries:
+        if country.visited == True:
+            visited.append(country)
+    return len(visited)
+
         
