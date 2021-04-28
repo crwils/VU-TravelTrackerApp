@@ -113,7 +113,10 @@ button:active {
 }
 
 .logo {
-    background-color: #047aed;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 
@@ -250,6 +253,7 @@ button:active {
     padding-left: 3%;
     padding-top: 2%;
     padding-bottom: 3%;
+    padding-right: 3%;
 }
 
 .country-page-top {
@@ -257,4 +261,8 @@ button:active {
     color: white;
     text-align: center;
     padding: 5px;
+}
+
+.splash-body {
+    background-color: #047aed;
 }
