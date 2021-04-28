@@ -1,10 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
-
-
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
 }
 
 body {
@@ -26,11 +33,11 @@ a {
     text-decoration: none;
 }
 
-a, a:visited, a:active {
+a,
+a:visited,
+a:active {
     text-decoration: none;
 }
-
-
 
 p {
     margin: 10px 0;
@@ -40,39 +47,30 @@ img {
     width: 100%;
 }
 
-body > main > section.showcase {
+body>main>section.showcase {
     background-color: #047aed;
 }
 
-body > main > section.showcase {
-    color:#fff;
-}
-
-.button-outline {
-    background:#ffffff;
-    border-radius: 7px;
-    background-color: white;
-    border: 1px #333 solid;
-    color:#333;
-    cursor: pointer;
+body>main>section.showcase {
+    color: #fff;
 }
 
 .add-vu {
     text-align: center;
     padding-top: 10px;
     padding-bottom: 10px;
-    
 }
 
 .button {
     border-radius: 15px;
     background-color: rgb(255, 255, 255);
     color: #333;
-    padding:3px 8px;
+    padding: 3px 8px;
     cursor: pointer;
 }
 
-.button:visited, button:active {
+.button:visited,
+button:active {
     color: #333;
     text-decoration: none;
 }
@@ -81,7 +79,6 @@ body > main > section.showcase {
     background-color: rgb(197, 197, 197);
     color: white;
 }
-
 
 .country-heading {
     text-align: center;
@@ -93,9 +90,6 @@ body > main > section.showcase {
     padding-top: 10px;
 }
 
-.vu-edit {
-}
-
 .new-vu-section {
     background-color: white;
     color: black;
@@ -103,12 +97,13 @@ body > main > section.showcase {
     padding-top: 10px;
     padding-bottom: 10px;
 }
-.create-vu {
-    display: flex;
-    flex-direction: column;
+
+.vu-vu-section {
+    background-color: white;
+    color: black;
     text-align: left;
     padding-top: 10px;
-    padding-left: 10px;
+    padding-bottom: 10px;
 }
 
 .edit-country {
@@ -116,25 +111,9 @@ body > main > section.showcase {
     padding-bottom: 10px;
 }
 
-.create-vu-form {
-    padding-bottom: 20px;
-    padding-top: 20px;
-}
-
-
-.view-delete-buttons {
-    padding-left: 20px;
-    padding-top: 10px;
-}
-
-.button-outline:hover {
-    background-color: #c2c2c2;
-    color: white;
-}
-
-
 
 /* Navbar */
+
 .navbar {
     background-color: #047aed;
     color: #fff;
@@ -158,12 +137,13 @@ body > main > section.showcase {
 }
 
 .navbar .flex {
-    justify-content:center;
+    justify-content: center;
     /* flex-direction: column; */
 }
 
 
 /* Utilities */
+
 .container {
     max-width: 1100px;
 }
@@ -173,7 +153,6 @@ body > main > section.showcase {
     align-items: center;
     height: 100%;
 }
-
 
 .btn-container {
     display: flex;
@@ -215,16 +194,6 @@ body > main > section.showcase {
     color: white;
 }
 
-
-/* body > main > section > div > div.showcase-form.card > form {
-    text-align: center;
-    padding-bottom: 30px;
-}
-
-body > main > article > section:nth-child(1) {
-    padding-bottom: 30px;
-} */
-
 .button-visited {
     border: 0;
     border-radius: 0.25rem;
@@ -238,12 +207,12 @@ body > main > article > section:nth-child(1) {
     margin: 0.25rem;
     padding: 0.3%;
     cursor: pointer;
-  }
+}
 
 .button-visited:hover {
     background-color: #74ffba;
     color: white;
-  }
+}
 
 .button-not-visited {
     border: 0;
@@ -258,20 +227,11 @@ body > main > article > section:nth-child(1) {
     margin: 0.25rem;
     padding: 0.3%;
     cursor: pointer;
-  }
+}
 
-  .button-not-visited:hover {
+.button-not-visited:hover {
     background-color: rgb(255, 127, 144);
     color: white;
-  }
-
-.footer {
-    background-color: #047aed;
-    position: absolute;
-    bottom: 0%;
-    width: 100%;
-    color: #fff;
-    text-align: center;
 }
 
 .subheader {
@@ -282,16 +242,15 @@ body > main > article > section:nth-child(1) {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    padding-left:3%;
-    padding-top:2%;
+    padding-left: 3%;
+    padding-top: 2%;
     padding-bottom: 3%;
 }
 
 .country-page-top {
-    background:#047aed;
+    background: #047aed;
     /* padding: 2%; */
     color: white;
     text-align: center;
     padding: 5px;
 }
-

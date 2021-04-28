@@ -1,7 +1,7 @@
 from flask import Flask, render_template
 
-from controllers.country_controller import countries_blueprint
-from controllers.vu_point_controller import vu_points_blueprint
+from controllers.countries_controller import countries_blueprint
+from controllers.vu_points_controller import vu_points_blueprint
 
 app = Flask(__name__)
 

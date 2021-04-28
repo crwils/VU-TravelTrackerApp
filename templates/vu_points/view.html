@@ -1,19 +1,13 @@
-{% extends "base.html" %}
-
-{% block content %}
+{% extends "base.html" %} {% block content %}
 <article>
     <section class="country-page-top">
         <h2> {% if vu_point.visited == True %} {{ vu_point.name }} ✅ {% else %} {{ vu_point.name }} ❌ {% endif %}</h2>
     </section>
-    <section class="new-vu-section">
-        Name: {{ vu_point.name }} <br>
-        Location: {{ vu_point.location.name }} <br>
-        Rating: {{ vu_point.rating }} <br>
-        Description: {{ vu_point.description }} <br>
-        {% if vu_point.visited == True %} Status: ✅ {% else %} Status ❌ {% endif %} <br>
+    <section class="vu-vu-section">
+        Name: {{ vu_point.name }} <br> Location: {{ vu_point.location.name }} <br> Rating: {{ vu_point.rating }} <br> Description: {{ vu_point.description }} <br> {% if vu_point.visited == True %} Status: ✅ {% else %} Status ❌ {% endif %} <br>
         <button class="button">
             <a href="/countries-{{country.id}}/vu-points-{{vu_point.id}}/edit">Edit</a>
-        </button> 
+        </button>
     </section>
     <hr>
 </article>

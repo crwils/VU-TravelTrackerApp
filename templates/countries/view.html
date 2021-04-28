@@ -1,10 +1,7 @@
-{% extends "base.html" %}
-
-{% block content %}
+{% extends "base.html" %} {% block content %}
 <article class="country-page-top">
     <section>
-        <h2 class="country-heading"> {% if country.visited == True %} {{ country.name }} ✅ {% else %} {{ country.name }}
-            ❌ {% endif %} </h2>
+        <h2 class="country-heading"> {% if country.visited == True %} {{ country.name }} ✅ {% else %} {{ country.name }} ❌ {% endif %} </h2>
     </section>
 
     <section class="btn-container">
@@ -25,15 +22,13 @@
         </button>
     </div>
 </section>
-<hr>
-{% for vu_point in all_vu_points %}
+<hr> {% for vu_point in all_vu_points %}
 <div class="card">
     <div class="new-vu">
         <b>Name:</b> {{ vu_point.name }} <br>
         <b>Location:</b> {{ vu_point.location.name }} <br>
         <b>Rating:</b> {{ vu_point.rating }} <br>
-        <b>Description:</b> {{ vu_point.description }} <br>
-        {% if vu_point.visited == True %} <b>Status:</b> ✅ {% else %} Status ❌ {% endif %}
+        <b>Description:</b> {{ vu_point.description }} <br> {% if vu_point.visited == True %} <b>Status:</b> ✅ {% else %} Status ❌ {% endif %}
     </div>
     <div class="btn-container">
         <button class="button">
@@ -44,6 +39,4 @@
         </form>
     </div>
 </div>
-    <hr>
-{% endfor %}
-    {% endblock %}
+<hr> {% endfor %} {% endblock %}

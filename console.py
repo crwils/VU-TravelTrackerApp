@@ -99,8 +99,32 @@ country_repository.save(country28)
 country29 = Country("Vietnam", True)
 country_repository.save(country29)
 
+country30 = Country("Colombia", False)
+country_repository.save(country30)
 
+country31 = Country("Costa Rica", False)
+country_repository.save(country31)
 
+country32 = Country("Hawaii", False)
+country_repository.save(country32)
+
+country33 = Country("Mexico", False)
+country_repository.save(country33)
+
+country34 = Country("Nepal", False)
+country_repository.save(country34)
+
+country35 = Country("Namibia", False)
+country_repository.save(country35)
+
+country36 = Country("New Zealand", False)
+country_repository.save(country36)
+
+country37 = Country("Philippines", False)
+country_repository.save(country37)
+
+country38 = Country("Peru", False)
+country_repository.save(country38)
 # country_2 = Country("Fiji", True)
 # country_repository.save(country_2)
 
@@ -119,13 +143,16 @@ location_repository.save(location_2)
 location_3 = Location("Royal National Park", country1)
 location_repository.save(location_3)
 
-vu_point_1 = Vu_point("Sydney Harbour Bridge", location_1, country1, 8, "Lesser known spot to take in the bridge in all its glory.", True)
+vu_point_1 = Vu_point("Sydney Harbour Bridge", location_1, country1,
+                      8, "Lesser known spot to take in the bridge in all its glory.", True)
 vu_point_repository.save(vu_point_1)
 
-vu_point_2 = Vu_point("Three Sisters", location_2, country1, 8, "Cool rock formation in the Blue Mountains, near Katoomba West of Sydney.", True)
+vu_point_2 = Vu_point("Three Sisters", location_2, country1, 8,
+                      "Cool rock formation in the Blue Mountains, near Katoomba West of Sydney.", True)
 vu_point_repository.save(vu_point_2)
 
-vu_point_3 = Vu_point("Wedding Cake Rock", location_3, country1, 9, "Sandstone rock formation that looks like a wedding cake! Now blocked off to the public due to fears of erosion making it unsafe.", True)
+vu_point_3 = Vu_point("Wedding Cake Rock", location_3, country1, 9,
+                      "Sandstone rock formation that looks like a wedding cake! Now blocked off to the public due to fears of erosion making it unsafe.", True)
 vu_point_repository.save(vu_point_3)
 
 # change repositories to add city in vu_point save and create save for city in city_repository

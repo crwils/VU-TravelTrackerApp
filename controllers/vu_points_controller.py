@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request, redirect, Blueprint
+
 from models.vu_point import Vu_point
+
 import repositories.vu_point_repository as vu_point_repository
 import repositories.country_repository as country_repository
 import repositories.location_repository as location_repository
@@ -9,7 +11,7 @@ vu_points_blueprint = Blueprint("vu_points", __name__)
 
 @vu_points_blueprint.route("/countries-<id>/vu-points-<id2>/view", methods=['GET'])
 def view_vu(id, id2):
-    # id2 is being passed the vu_point.id 
+    # id2 is being passed the vu_point.id
     # so we can pass that in to the select(id) to get the vu_point we're looking at
     country = country_repository.select(id)
     vu_point = vu_point_repository.select(id2)
@@ -20,7 +22,7 @@ def view_vu(id, id2):
 
 @vu_points_blueprint.route("/countries-<id>/vu-points-<id2>/edit", methods=['GET'])
 def edit_vu(id, id2):
-    # id2 is being passed the vu_point.id 
+    # id2 is being passed the vu_point.id
     # so we can pass that in to the select(id) to get the vu_point we're looking at
     country = country_repository.select(id)
     vu_point = vu_point_repository.select(id2)
@@ -33,18 +35,19 @@ def edit_vu(id, id2):
 def edit_vu_submit(id, id2):
     country = country_repository.select(id)
     update_vu_point = vu_point_repository.select(id2)
-    location = location_repository.select(update_vu_point.location.id) 
+    location = location_repository.select(update_vu_point.location.id)
 
     name = request.form['vu_name']
     rating = request.form['rating']
     description = request.form['description']
-    visited = request.form['visited']   
+    visited = request.form['visited']
     location_name = request.form['location_name']
-    if location.name != location_name: # if the location name is not equal to the location already attached, udpate it with the new location from the form
+    if location.name != location_name:  # if the location name is not equal to the location already attached, udpate it with the new location from the form
         location.name = location_name
         location_repository.update(location)
-    
-    update_vu_point = Vu_point(name, location, country, rating, description, visited, id2)
+
+    update_vu_point = Vu_point(
+        name, location, country, rating, description, visited, id2)
     vu_point_repository.update(update_vu_point)
 
     # if visited == "True":
@@ -52,6 +55,7 @@ def edit_vu_submit(id, id2):
     #     country_repository.update(updated_country)
 
     return redirect("/countries-" + id)
+
 
 @vu_points_blueprint.route("/countries-<id>/vu-points-<id2>/delete", methods=['POST'])
 def delete_vu(id, id2):

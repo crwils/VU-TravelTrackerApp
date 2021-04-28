@@ -1,6 +1,4 @@
-{% extends "base.html" %}
-
-{% block content %}
+{% extends "base.html" %} {% block content %}
 <article class="country-page-top">
     <h1 style="text-align: center;">EDIT Country</h1>
 </article>
@@ -8,7 +6,7 @@
 <div class="edit-country">
     <form action="/countries-{{country.id}}/edit" method='POST'>
         <label for="country">Country:</label><br>
-        <select required style="width: 35%;" id="country" name="country">
+        <select required style="width: auto" id="country" name="country">
             <option value="{{country.name}}" selected>{{country.name}}</option>
             <option value="---" disabled="true">---</option>
             <option value="Afganistan">Afghanistan</option>
@@ -266,7 +264,4 @@
         <input style="width: auto;" type="submit" value="Confirm">
     </form>
 </div>
-<hr>
-
-
-{% endblock %}
+<hr> {% endblock %}

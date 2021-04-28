@@ -1,49 +1,45 @@
-{% extends "base.html" %}
-
-{% block content %}
+{% extends "base.html" %} {% block content %}
 <article class="country-page-top">
     <h1 style="text-align: center;">NEW VU.</h1>
 </article>
 
 
-<section class="create-vu">
-    <div class=create-vu-form>
-        <form action="/countries-{{country.id}}/new_vu" method="POST">
-            <label for="default_country">Country: </label>
-            <select style="width: auto;" name="default_country" id="default_country">
-                <option value="default_country" selected disabled="true"> {{country.name}} </option>
-            </select><br><br>
-            <label for="vu_name">VU. Name: </label>
-            <input style="width: 15%;" type="text" name="vu_name"><br><br>
-            <label for="location_name">Location: </label>
-            <input style="width: 15%;" type="text" name="location_name"><br><br>
-            <label for="rating">Rating out of 10: </label>
-            <select style="width: 8%;" name="rating" id="rating">
-                <option value="0" selected></option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-            </select><br><br>
-            <label for="visited">Visited?</label>
-            <select required style="width: 15%" name="visited" id="visited">
-                <option value="please-select" selected>Please select</option>
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
-            </select><br><br>
-            <label for="description">Description: </label><br>
-            <textarea style="width: 30%" name="description" id="description" cols="30" rows="2"></textarea><br>
-            <!-- <label for="image_url">Add image URL: </label>
+<section class="new-vu-section">
+    <form action="/countries-{{country.id}}/new_vu" method="POST">
+        <label for="default_country">Country: </label><br>
+        <select style="width: auto;" name="default_country" id="default_country">
+            <option value="default_country" selected disabled="true"> {{country.name}} </option>
+        </select><br>
+        <label for="vu_name">VU. Name: </label><br>
+        <input style="width: auto;" type="text" name="vu_name"><br>
+        <label for="location_name">Location: </label><br>
+        <input style="width: auto;" type="text" name="location_name"><br>
+        <label for="rating">Rating out of 10: </label><br>
+        <select style="width: auto;" name="rating" id="rating">
+            <option value="0" selected></option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select><br>
+        <label for="visited">Visited?</label><br>
+        <select required style="width: auto" name="visited" id="visited">
+            <option value="please-select" selected>Please select</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select><br>
+        <label for="description">Description: </label><br>
+        <textarea style="width: auto" name="description" id="description" cols="30" rows="2"></textarea><br>
+        <!-- <label for="image_url">Add image URL: </label>
         <input style="width: 15%" type="url" name="image_url" id="image_url"> -->
-            <input class="button" style="width: auto;" type="submit" value="Submit">
-        </form>
-    </div>
+        <input class="button" style="width: auto;" type="submit" value="Submit">
+    </form>
+
 </section>
-<hr>
-{% endblock %}
+<hr> {% endblock %}
