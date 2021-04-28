@@ -1,41 +1,46 @@
 {% extends "base.html" %}
 
 {% block content %}
+<article class="country-page-top">
+    <section>
+        <h2 class="country-heading"> {% if country.visited == True %} {{ country.name }}  ✅ {% else %} {{ country.name }} ❌ {% endif %} </h2>
+    </section>
 
-<section>
-    <h2> {% if country.visited == True %} {{ country.name }} ✅ {% else %} {{ country.name }} ❌ {% endif %} </h2>
-</section>
+    <section class="btn-container">
+        <button class="button">
+            <a class="button" href="/countries-{{country.id}}/edit">Edit</a>
+        </button>
+        <form action="/countries-{{country.id}}/delete" method="POST">
+            <button class="button">Delete</button>
+        </form>
 
-<section class="edit-delete-btn">
-    <button class="edit-btn">
-        <a href="/countries-{{country.id}}/edit">Edit</a>
-    </button>
-    <form action="/countries-{{country.id}}/delete" method="POST">
-        <button style="width: auto;">Delete</button>
-    </form>
-    <hr>
-</section>
+    </section>
+</article>
 <hr>
 <section>
-    <button style="width:10%">
-        <a href="/countries-{{country.id}}/new_vu">Add VU.</a>
-    </button>
+    <div class="add-vu">
+        <button class="button">
+            <a class="button" href="/countries-{{country.id}}/new_vu">Add VU.</a>
+        </button>
+    </div>
 </section>
 <hr>
-<section>
-    {% for vu_point in all_vu_points %}
-    Name: {{ vu_point.name }} <br>
-    Location: {{ vu_point.location.name }} <br>
-    Rating: {{ vu_point.rating }} <br>
-    Description: {{ vu_point.description }} <br>
-    {% if vu_point.visited == True %} Status: ✅ {% else %} Status ❌ {% endif %}
-    <p><a class="view-button" href="/countries-{{country.id}}/vu-points-{{vu_point.id}}/view">View</a></p>
-    <form action="/countries-{{country.id}}/vu-points-{{vu_point.id}}/delete" method="POST">
-        <button class="button-outline" style="width: auto;">Delete</button>
-    </form>
+    <div class="new-vu">
+        {% for vu_point in all_vu_points %}
+        <b>Name:</b> {{ vu_point.name }} <br>
+        <b>Location:</b> {{ vu_point.location.name }} <br>
+        <b>Rating:</b> {{ vu_point.rating }} <br>
+        <b>Description:</b> {{ vu_point.description }} <br>
+        {% if vu_point.visited == True %} <b>Status:</b> ✅ {% else %} Status ❌ {% endif %}
+    </div>
+    <div class="btn-container">
+        <button class="button">
+            <a class="button" href="/countries-{{country.id}}/vu-points-{{vu_point.id}}/view">View</a>
+        </button>
+        <form action="/countries-{{country.id}}/vu-points-{{vu_point.id}}/delete" method="POST">
+            <button class="button">Delete</button>
+        </form>
+    </div>
     <hr>
     {% endfor %}
-
-</section>
-
 {% endblock %}

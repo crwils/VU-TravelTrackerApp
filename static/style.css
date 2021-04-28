@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
 
+
 * {
     box-sizing: border-box;
     padding: 0;
@@ -12,19 +13,24 @@ body {
     line-height: 1.6;
 }
 
+hr {
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
 ul {
     list-style-type: none;
 }
 
-/* a {
+a {
     text-decoration: none;
-} */
+}
 
-/* h1, h2 {
-    font-weight:bolder
-    line-height: 0.8;
-    margin: 10px 0;
-} */
+a, a:visited, a:active {
+    text-decoration: none;
+}
+
+
 
 p {
     margin: 10px 0;
@@ -51,28 +57,61 @@ body > main > section.showcase {
     cursor: pointer;
 }
 
-.view-button:hover {
-    color: #333;
-    text-decoration: none;
-    border-bottom: 2px #333 solid;
+.add-vu {
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
 }
 
-.view-button {
-    border: 1px #333 solid;
-    text-decoration: none;
-    cursor: pointer;
-    border-radius: 7px;
+.button {
+    border-radius: 15px;
+    background-color: rgb(255, 255, 255);
     color: #333;
-    font-size: small;
-    font-weight: bolder;
-    padding: 3px;
+    padding:3px 8px;
 }
+
+.button:visited, button:active {
+    color: #333;
+    text-decoration: none;
+}
+
+.button:hover {
+    background-color: rgb(197, 197, 197);
+    color: white;
+}
+
+
+.country-heading {
+    text-align: center;
+    padding-top: 15px;
+}
+
+.new-vu {
+    text-align: center;
+    padding-top: 10px;
+}
+
+.view-delete-buttons {
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+
+
+
+.button-outline:hover {
+    background-color: #c2c2c2;
+    color: white;
+}
+
+
 
 /* Navbar */
 .navbar {
     background-color: #047aed;
     color: #fff;
-    height: 70px;
+    /* height: 70px; */
 }
 
 .navbar ul {
@@ -91,13 +130,14 @@ body > main > section.showcase {
 }
 
 .navbar .flex {
-    justify-content:space-between;
+    justify-content:center;
+    /* flex-direction: column; */
 }
 
 
 /* Utilities */
 .container {
-    max-width: 1100px;
+    max-width: 1500px;
 }
 
 .flex {
@@ -106,26 +146,13 @@ body > main > section.showcase {
     height: 100%;
 }
 
-/* .grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-} */
 
-/* .profile-countries-visit {
-    padding: 10px;
-} */
-
-.edit-delete-btn {
+.btn-container {
     display: flex;
-    justify-content: left;
-    padding-left: 10px;
+    justify-content: center;
     padding-bottom: 10px;
+    padding-top: 10px;
 }
-
 
 .stats {
     display: flex;
@@ -186,7 +213,6 @@ body > main > article > section:nth-child(1) {
 .button-visited:hover {
     background-color: #74ffba;
     color: white;
-
   }
 
 .button-not-visited {
@@ -223,7 +249,16 @@ body > main > article > section:nth-child(1) {
 }
 
 .countries {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     padding-left:3%;
     padding-top:2%;
     padding-bottom: 3%;
+}
+
+.country-page-top {
+    background:#047aed;
+    /* padding: 2%; */
+    color: white;
 }
