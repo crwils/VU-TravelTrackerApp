@@ -20,11 +20,11 @@ ul {
     text-decoration: none;
 } */
 
-h1, h2 {
+/* h1, h2 {
     font-weight:bolder
     line-height: 0.8;
     margin: 10px 0;
-}
+} */
 
 p {
     margin: 10px 0;
@@ -106,11 +106,124 @@ body > main > section.showcase {
     height: 100%;
 }
 
-.grid {
+/* .grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 20px;
     justify-content: center;
     align-items: center;
     height: 100%;
+} */
+
+/* .profile-countries-visit {
+    padding: 10px;
+} */
+
+.edit-delete-btn {
+    display: flex;
+    justify-content: left;
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+
+
+.stats {
+    display: flex;
+    justify-content: center;
+}
+
+.stats p {
+    padding: 5px;
+}
+
+.name-header {
+    display: flex;
+    justify-content: center;
+}
+
+.showcase-stats {
+    padding-top: 30px;
+    padding-bottom: 10px;
+    background-color: #047aed;
+    color: white;
+}
+
+.showcase-form {
+    display: block;
+    text-align: center;
+    padding-bottom: 5%;
+}
+
+.showcase-form.card {
+    background-color: #047aed;
+    color: white;
+}
+
+body > main > section > div > div.showcase-form.card > form {
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+body > main > article > section:nth-child(1) {
+    padding-bottom: 30px;
+}
+
+.button-visited {
+    border: 0;
+    border-radius: 0.25rem;
+    background-color: rgb(80, 177, 148);
+    color: white;
+    font-family: -system-ui, sans-serif;
+    font-size: 1rem;
+    line-height: 1.2;
+    white-space: nowrap;
+    text-decoration: none;
+    margin: 0.25rem;
+    padding: 0.3%;
+    cursor: pointer;
+  }
+
+.button-visited:hover {
+    background-color: #74ffba;
+    color: white;
+
+  }
+
+.button-not-visited {
+    border: 0;
+    border-radius: 0.25rem;
+    background-color: rgb(177, 80, 80);
+    color: white;
+    font-family: -system-ui, sans-serif;
+    font-size: 1rem;
+    line-height: 1.2;
+    white-space: nowrap;
+    text-decoration: none;
+    margin: 0.25rem;
+    padding: 0.3%;
+    cursor: pointer;
+  }
+
+  .button-not-visited:hover {
+    background-color: rgb(255, 127, 144);
+    color: white;
+  }
+
+.footer {
+    background-color: #047aed;
+    position: absolute;
+    bottom: 0%;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+}
+
+.subheader {
+    padding-bottom: 3px;
+}
+
+.countries {
+    padding-left:3%;
+    padding-top:2%;
+    padding-bottom: 3%;
 }

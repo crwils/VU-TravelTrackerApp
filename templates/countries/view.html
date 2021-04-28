@@ -5,13 +5,15 @@
 <section>
     <h2> {% if country.visited == True %} {{ country.name }} ✅ {% else %} {{ country.name }} ❌ {% endif %} </h2>
 </section>
-<section>
-    <button>
+
+<section class="edit-delete-btn">
+    <button class="edit-btn">
         <a href="/countries-{{country.id}}/edit">Edit</a>
     </button>
     <form action="/countries-{{country.id}}/delete" method="POST">
         <button style="width: auto;">Delete</button>
     </form>
+    <hr>
 </section>
 <hr>
 <section>
