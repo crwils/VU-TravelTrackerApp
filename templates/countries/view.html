@@ -3,7 +3,8 @@
 {% block content %}
 <article class="country-page-top">
     <section>
-        <h2 class="country-heading"> {% if country.visited == True %} {{ country.name }}  ✅ {% else %} {{ country.name }} ❌ {% endif %} </h2>
+        <h2 class="country-heading"> {% if country.visited == True %} {{ country.name }} ✅ {% else %} {{ country.name }}
+            ❌ {% endif %} </h2>
     </section>
 
     <section class="btn-container">
@@ -25,14 +26,14 @@
     </div>
 </section>
 <hr>
-    <div class="new-vu">
-        {% for vu_point in all_vu_points %}
-        <b>Name:</b> {{ vu_point.name }} <br>
-        <b>Location:</b> {{ vu_point.location.name }} <br>
-        <b>Rating:</b> {{ vu_point.rating }} <br>
-        <b>Description:</b> {{ vu_point.description }} <br>
-        {% if vu_point.visited == True %} <b>Status:</b> ✅ {% else %} Status ❌ {% endif %}
-    </div>
+{% for vu_point in all_vu_points %}
+<div class="new-vu">
+    <b>Name:</b> {{ vu_point.name }} <br>
+    <b>Location:</b> {{ vu_point.location.name }} <br>
+    <b>Rating:</b> {{ vu_point.rating }} <br>
+    <b>Description:</b> {{ vu_point.description }} <br>
+    {% if vu_point.visited == True %} <b>Status:</b> ✅ {% else %} Status ❌ {% endif %}
+
     <div class="btn-container">
         <button class="button">
             <a class="button" href="/countries-{{country.id}}/vu-points-{{vu_point.id}}/view">View</a>
@@ -41,6 +42,7 @@
             <button class="button">Delete</button>
         </form>
     </div>
-    <hr>
-    {% endfor %}
+</div>
+<hr>
+{% endfor %}
 {% endblock %}

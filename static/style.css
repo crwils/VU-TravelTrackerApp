@@ -111,6 +111,7 @@ body > main > section.showcase {
 .navbar {
     background-color: #047aed;
     color: #fff;
+    padding: 8px;
     /* height: 70px; */
 }
 
