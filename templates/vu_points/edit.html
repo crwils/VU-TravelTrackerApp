@@ -1,53 +1,49 @@
 {% extends "base.html" %}
 
 {% block content %}
+<article class="country-page-top">
+    <h2> {% if vu_point.visited == True %} {{ vu_point.name }} ✅ {% else %} {{ vu_point.name }}
+        ❌ {% endif %} </h2>
+    <div class="vu-edit">
+        <b style="text-align: center;">VU. EDIT</b>
+    </div>
+</article>
 
-<section>
-    <b>VU. EDIT:</b>
-    <hr>
+
+<section class="new-vu-section">
     <form action="/countries-{{country.id}}/vu-points-{{vu_point.id}}/edit" method="POST">
-        <label for="default_country">Country: </label>
+        <label for="default_country">Country: </label><br>
         <select style="width: auto;" name="default_country" id="default_country">
             <option value="default_country" selected disabled="true"> {{country.name}} </option>
-        </select><br><br>
-        <label for="vu_name">VU. Name: </label>
-        <input style="width: auto;" type="text" name="vu_name" value="{{vu_point.name}}"><br><br>
-        <label for="location_name">Location: </label>
-        <input style="width: auto;" type="text" name="location_name" value="{{vu_point.location.name}}"><br><br>
-        <label for="rating">Rating out of 10: </label>
+        </select><br>
+        <label for="vu_name">VU. Name: </label><br>
+        <input style="width: auto;" type="text" name="vu_name" value="{{vu_point.name}}"><br>
+        <label for="location_name">Location: </label><br>
+        <input style="width: auto;" type="text" name="location_name" value="{{vu_point.location.name}}"><br>
+        <label for="rating">Rating out of 10: </label><br>
         <select style="width: auto;" name="rating" id="rating">
-            <option value="1" {% if vu_point.rating == 1 %} selected="selected" {% endif %} >1</option>
-            <option value="2" {% if vu_point.rating == 2 %} selected="selected" {% endif %}>2</option>
-            <option value="3" {% if vu_point.rating == 3 %} selected="selected" {% endif %}>3</option>
-            <option value="4" {% if vu_point.rating == 4 %} selected="selected" {% endif %}>4</option>
-            <option value="5" {% if vu_point.rating == 5 %} selected="selected" {% endif %}>5</option>
-            <option value="6" {% if vu_point.rating == 6 %} selected="selected" {% endif %}>6</option>
-            <option value="7" {% if vu_point.rating == 7 %} selected="selected" {% endif %}>7</option>
-            <option value="8" {% if vu_point.rating == 8 %} selected="selected" {% endif %} >8</option>
-            <option value="9" {% if vu_point.rating == 9 %} selected="selected" {% endif %}>9</option>
-            <option value="10" {% if vu_point.rating == 10 %} selected="selected" {% endif %}>10</option>
-        </select><br><br>
-        <label for="visited">Visited?</label>
+            <option value="1" {% if vu_point.rating==1 %} selected="selected" {% endif %}>1</option>
+            <option value="2" {% if vu_point.rating==2 %} selected="selected" {% endif %}>2</option>
+            <option value="3" {% if vu_point.rating==3 %} selected="selected" {% endif %}>3</option>
+            <option value="4" {% if vu_point.rating==4 %} selected="selected" {% endif %}>4</option>
+            <option value="5" {% if vu_point.rating==5 %} selected="selected" {% endif %}>5</option>
+            <option value="6" {% if vu_point.rating==6 %} selected="selected" {% endif %}>6</option>
+            <option value="7" {% if vu_point.rating==7 %} selected="selected" {% endif %}>7</option>
+            <option value="8" {% if vu_point.rating==8 %} selected="selected" {% endif %}>8</option>
+            <option value="9" {% if vu_point.rating==9 %} selected="selected" {% endif %}>9</option>
+            <option value="10" {% if vu_point.rating==10 %} selected="selected" {% endif %}>10</option>
+        </select><br>
+        <label for="visited">Visited?</label><br>
         <select required style="width: auto" name="visited" id="visited">
-            <option value="True" {% if vu_point.visited == True %} selected {% endif %}>Yes</option>
-            <option value="False" {% if vu_point.visited == False %} selected {% endif %}>No</option>
-        </select><br><br>
-        <label for="description">Description: </label>
-        <textarea style="width: auto;" name="description" id="description" cols="30" rows="3">{{vu_point.description}}</textarea>
-        
-        <!-- <select name="location_id" id="location">
-            {% for location in all_locations %}
-            <option value="{{ vu_point.location_id }}"
-                {% if vu_point.location_id == location.id %} selected = "selected" {% endif %}>
-                {{ vu_point.location.name }}
-            </option>
-            {% endfor %}
-        </select> -->
-
-        <!-- <label for="image_url">Add image URL: </label>
-        <input style="width: 15%" type="url" name="image_url" id="image_url"> -->
-        <input style="width: auto;" type="submit" value="Submit">
-    </form>
+            <option value="True" {% if vu_point.visited==True %} selected {% endif %}>Yes</option>
+            <option value="False" {% if vu_point.visited==False %} selected {% endif %}>No</option>
+        </select><br>
+        <label for="description">Description: </label><br>
+        <textarea style="width: auto;" name="description" id="description" cols="30"
+            rows="3">{{vu_point.description}}</textarea><br>
+        <input class="button" style="width: auto;" type="submit" value="Submit">
+    </form><br>
+    <hr>
 </section>
 
 {% endblock %}

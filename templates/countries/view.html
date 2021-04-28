@@ -20,20 +20,21 @@
 <hr>
 <section>
     <div class="add-vu">
-        <button class="button">
+        <button class="button" id="colour-btn">
             <a class="button" href="/countries-{{country.id}}/new_vu">Add VU.</a>
         </button>
     </div>
 </section>
 <hr>
 {% for vu_point in all_vu_points %}
-<div class="new-vu">
-    <b>Name:</b> {{ vu_point.name }} <br>
-    <b>Location:</b> {{ vu_point.location.name }} <br>
-    <b>Rating:</b> {{ vu_point.rating }} <br>
-    <b>Description:</b> {{ vu_point.description }} <br>
-    {% if vu_point.visited == True %} <b>Status:</b> ✅ {% else %} Status ❌ {% endif %}
-
+<div class="card">
+    <div class="new-vu">
+        <b>Name:</b> {{ vu_point.name }} <br>
+        <b>Location:</b> {{ vu_point.location.name }} <br>
+        <b>Rating:</b> {{ vu_point.rating }} <br>
+        <b>Description:</b> {{ vu_point.description }} <br>
+        {% if vu_point.visited == True %} <b>Status:</b> ✅ {% else %} Status ❌ {% endif %}
+    </div>
     <div class="btn-container">
         <button class="button">
             <a class="button" href="/countries-{{country.id}}/vu-points-{{vu_point.id}}/view">View</a>
@@ -43,6 +44,6 @@
         </form>
     </div>
 </div>
-<hr>
+    <hr>
 {% endfor %}
-{% endblock %}
+    {% endblock %}

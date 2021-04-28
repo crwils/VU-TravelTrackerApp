@@ -1,16 +1,21 @@
 {% extends "base.html" %}
 
 {% block content %}
-
-<section class="new-vu-section">
-        <h2> {{ vu_point.name }}  </h2>
-        Name:   {{ vu_point.name }} <br>
+<article>
+    <section class="country-page-top">
+        <h2> {% if vu_point.visited == True %} {{ vu_point.name }} ✅ {% else %} {{ vu_point.name }} ❌ {% endif %}</h2>
+    </section>
+    <section class="new-vu-section">
+        Name: {{ vu_point.name }} <br>
         Location: {{ vu_point.location.name }} <br>
         Rating: {{ vu_point.rating }} <br>
         Description: {{ vu_point.description }} <br>
-        {% if vu_point.visited == True %} Status: ✅ {% else %} Status ❌ {% endif %}
-        <p><a href="/countries-{{country.id}}/vu-points-{{vu_point.id}}/edit">Edit</a></p>
-</section>
-<hr>
+        {% if vu_point.visited == True %} Status: ✅ {% else %} Status ❌ {% endif %} <br>
+        <button class="button">
+            <a href="/countries-{{country.id}}/vu-points-{{vu_point.id}}/edit">Edit</a>
+        </button> 
+    </section>
+    <hr>
+</article>
 
 {% endblock %}

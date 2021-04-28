@@ -69,6 +69,7 @@ body > main > section.showcase {
     background-color: rgb(255, 255, 255);
     color: #333;
     padding:3px 8px;
+    cursor: pointer;
 }
 
 .button:visited, button:active {
@@ -84,7 +85,7 @@ body > main > section.showcase {
 
 .country-heading {
     text-align: center;
-    padding-top: 15px;
+    padding-top: 10px;
 }
 
 .new-vu {
@@ -92,13 +93,39 @@ body > main > section.showcase {
     padding-top: 10px;
 }
 
+.vu-edit {
+}
+
+.new-vu-section {
+    background-color: white;
+    color: black;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.create-vu {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.edit-country {
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.create-vu-form {
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+
 .view-delete-buttons {
     padding-left: 20px;
     padding-top: 10px;
 }
-
-
-
 
 .button-outline:hover {
     background-color: #c2c2c2;
@@ -138,7 +165,7 @@ body > main > section.showcase {
 
 /* Utilities */
 .container {
-    max-width: 1500px;
+    max-width: 1100px;
 }
 
 .flex {
@@ -179,7 +206,8 @@ body > main > section.showcase {
 .showcase-form {
     display: block;
     text-align: center;
-    padding-bottom: 5%;
+    padding-bottom: 3%;
+    flex-direction: column;
 }
 
 .showcase-form.card {
@@ -187,14 +215,15 @@ body > main > section.showcase {
     color: white;
 }
 
-body > main > section > div > div.showcase-form.card > form {
+
+/* body > main > section > div > div.showcase-form.card > form {
     text-align: center;
     padding-bottom: 30px;
 }
 
 body > main > article > section:nth-child(1) {
     padding-bottom: 30px;
-}
+} */
 
 .button-visited {
     border: 0;
@@ -262,4 +291,7 @@ body > main > article > section:nth-child(1) {
     background:#047aed;
     /* padding: 2%; */
     color: white;
+    text-align: center;
+    padding: 5px;
 }
+
