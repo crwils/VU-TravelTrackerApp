@@ -33,16 +33,10 @@ def view_country(id):
     country = country_repository.select(id)
     all_vu_points = country_repository.vu_points(country)
 
-    # if len(all_vu_points) > 0:  # stops the country visited changing to true when last vu is deleted
-        # true_counter = 0
     for vu_point in all_vu_points:  # by doing on this route, it takes account of edits and new vu's
         if vu_point.visited == True:
                 country = Country(country.name, True, id)
                 country_repository.update(country)
-                # true_counter += 1
-        # if true_counter > 0:        # every time it iterates over all vu points before displaying, and if any vu_point.visited values are true, 1 is added to true_counter, and if true counter is not 0, it will always assign true to the country visited value. This was to stop the country changing to not visited if one vu_point changed to not visited
-        #     country = Country(country.name, True, id)
-        #     country_repository.update(country)
 
     return render_template("countries/view.html", country=country, all_vu_points=all_vu_points)
 

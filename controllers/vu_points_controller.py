@@ -46,13 +46,8 @@ def edit_vu_submit(id, id2):
         location.name = location_name
         location_repository.update(location)
 
-    update_vu_point = Vu_point(
-        name, location, country, rating, description, visited, id2)
+    update_vu_point = Vu_point(name, location, country, rating, description, visited, id2)
     vu_point_repository.update(update_vu_point)
-
-    # if visited == "True":
-    #     updated_country = Country(country.name, True, id)
-    #     country_repository.update(updated_country)
 
     return redirect("/countries-" + id)
 
