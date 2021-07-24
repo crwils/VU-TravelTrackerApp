@@ -1,8 +1,21 @@
-# vu_app_project
-VU App: a full-stack web-app, allowing a single user to track all the countries they've travelled to, as well as their favourite view-points from that country. 
+<div align="center">
+  <a href="https://ibb.co/KL5WYs9"><img height="200" width="auto" src="https://i.ibb.co/Sd6B2mK/vu-transparent.png" alt="vu-transparent" border="0"></a>
+</div>
+
+<b><h1 align='center'> VU App 🌍 </h1></b>
+
+<h3 align='center'> A Travel Tracking Web App </h3>
+
+<h5 align="center"> First Project - <a href="https://codeclan.com/">CodeClan</a> (April 2021) </h5>
+
+<!-- ABOUT THE PROJECT -->
+<h2 id="about-the-project"> ✅ About the Project</h2>
+
+VU App is a full-stack web-app, allowing a single user to track all the countries they've travelled to, as well as their favourite view-points from that country. 
 Built using Python, Flask, HTML, CSS, PostgreSQL, psycopg2.
 
-<br>
+<!-- OVERVIEW -->
+<h2 id="overview"> :cloud: Overview</h2>
 
 Below is the main page of the user, with dropdown menus to select a country and whether or not they have visited already. When submitting, the country will be added to the appropriate list underneath. 
 
