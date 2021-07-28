@@ -8,16 +8,20 @@
 
 <h5 align="center"> First Project - <a href="https://codeclan.com/">CodeClan</a> (April 2021) </h5>
 
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
 <!-- ABOUT THE PROJECT -->
 <h2 id="about-the-project"> ✅ About the Project</h2>
 
 VU App is a full-stack web-app, allowing a single user to track all the countries they've travelled to, as well as their favourite view-points from that country. 
-Built using Python, Flask, HTML, CSS, PostgreSQL, psycopg2.
+Built using Python, Flask and a PostgreSQL database.
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 <!-- OVERVIEW -->
 <h2 id="overview"> :cloud: Overview</h2>
 
-Below is the main page of the user, with dropdown menus to select a country and whether or not they have visited already. When submitting, the country will be added to the appropriate list underneath. 
+Below is the main page, with dropdown menus to select a country and whether or not they have visited already. When submitting, the country will be added to the appropriate list underneath which uses CSS Flex to stay responsive.
 
 The stats at the top automatically update to show the percetage of the world the user has visited, and number of countries visited in total. 
 
